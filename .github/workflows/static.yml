@@ -33,11 +33,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Active automatiquement GitHub Pages (build via Actions) si ce n'est pas déjà fait
+          enablement: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Publie uniquement le portfolio S8 comme racine du site
+          path: 'proposition design/s8-portfolio'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
