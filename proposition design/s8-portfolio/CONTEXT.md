@@ -1,7 +1,7 @@
 # CONTEXTE — Sous-portfolio S8 (déploiement Vercel)
 
 > Fichier de mémoire du projet. **À mettre à jour à chaque modification** pour ne pas perdre le contexte.
-> Dernière mise à jour : **2026-06-02**
+> Dernière mise à jour : **2026-11-16**
 
 ---
 
@@ -78,6 +78,17 @@ Cette page **fusionne** :
 - **2026-06-02 (fix)** — Le titre hero se coupait en plein mot (« Mo-ham-med ») à cause de `hyphens:auto`/`overflow-wrap`.
   Retirés. Ajout `white-space:nowrap` sur `.ln` (noms jamais coupés), taille `clamp(40px,8vw,104px)`, hero realigné en haut
   (`align-items:start`, colonnes `1.4fr/.85fr`, gap 56px). **Ne jamais réintroduire `hyphens:auto` sur `.hero h1`.**
+- **2026-11-16** — Passe « Apple design » (skills `apple-design` + `emil-design-eng` d'emilkowalski/skills). Palette, polices et
+  contenu inchangés. Nav et menu mobile en **matériau translucide** (`blur(20px) saturate(180%)`, liseré seulement au défilement),
+  onglet actif en capsule, burger → croix animé, breakpoint burger 860 → **960px** (la nav passait sur 2 lignes vers 800px).
+  Boutons/tags/puces en **capsule**, cartes Compétences et sous-UF détachées (rayon 20px, ombre douce). Retour instantané à
+  l'appui (`scale(.97)`), survols limités à `(hover:hover) and (pointer:fine)`, plus aucun `transition:all`, courbes
+  `--ease-out` / `--ease-drawer`. Apparition au scroll plus courte (600ms + léger flou, décalage non uniforme). Accordéon en
+  `grid-template-rows 0fr→1fr` (interruptible, plus de mesure `scrollHeight` ni d'écouteur resize ; panneaux repliés `inert`).
+  Lightbox : fond qui se matérialise, entrée/sortie par transitions (sortie plus rapide), fondu flouté entre images, focus
+  géré (bouton fermer ↔ déclencheur), **balayage tactile** (suivi 1:1, projection de l'élan, élastique aux bornes).
+  Accessibilité : `:focus-visible`, `prefers-reduced-transparency`, `prefers-contrast: more`, mouvement réduit = fondu simple.
+  **Fix mobile** : « Mohammed » (Syne 800 ≈ 9,8 × la taille) débordait à 40px sur 375px → titre `clamp(26px,8.8vw,104px)`.
 
 ## 8. TODO / idées
 
